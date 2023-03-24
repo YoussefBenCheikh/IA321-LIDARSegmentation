@@ -199,7 +199,6 @@ class RangeKitti(data.Dataset):
       files = get_files(self.root_dir+'/'+folder+'/range')
       files = [self.root_dir+'/'+folder+'/range/'+file for file in files]
       self.files.extend(files)
-    self.files = self.files[:10]
   def __len__(self):
     return len(self.files)
 
