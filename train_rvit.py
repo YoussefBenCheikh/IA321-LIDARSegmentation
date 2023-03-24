@@ -108,10 +108,10 @@ for epoch in range( nb_epochs):
           print("\nBest model thus far. Saving...\n")
           best_miou = miou
           #torch.save(model, "models/rvit_epoch{}".format(epoch))
-          torch.save(model.state_dict(), "TrainedModels/rvit_epoch{}.pt")
+          torch.save(model.state_dict(), "TrainedModels/rvit_epoch{}.pt".format(epoch+1))
 
 
-torch.save(model.state_dict(), "TrainedModels/rvit_epoch{}_final.pt")
+torch.save(model.state_dict(), "TrainedModels/rvit_epoch{}_final.pt".format(nb_epochs))
 
 print('train_loss_history_1', train_loss_history_1)
 print('val_loss_history_1',val_loss_history_1)
