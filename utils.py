@@ -406,11 +406,11 @@ def train(model, data_loader, optim, criterion, metric, iteration_loss=False):
         # Get the inputs and labels
         inputs = batch_data[0].cuda()
         #print(batch_data[1].shape)
-        labels = batch_data[1][:,::4,::4].cuda()
+        labels = batch_data[1].cuda()
         # complete
         optim.zero_grad()
         # Forward propagation
-        outputs = model(inputs).logits
+        outputs = model(inputs)
         # ..........complete..........
 
         # Loss computation
@@ -445,11 +445,11 @@ def test(model, data_loader, criterion, metric, iteration_loss=False):
     for step, batch_data in enumerate(data_loader):
         # Get the inputs and labels
         inputs = batch_data[0].cuda()
-        labels = batch_data[1][:,::4,::4].cuda()
+        labels = batch_data[1].cuda()
 
         with torch.no_grad():
             # Forward propagation
-            outputs = model(inputs).logits
+            outputs = model(inputs)
 
             # Loss computation
             loss = criterion(outputs, labels)
