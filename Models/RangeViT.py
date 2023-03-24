@@ -293,7 +293,7 @@ class RangeViT(nn.Module):
       x1 = x1[:,:,0,:]
       x1 = torch.transpose(x1, 1,2)
       x1 = self.encoder(x1)
-      x1 = torch.reshape(x1, ([1,257,4,64]))
+      x1 = torch.reshape(x1, ([-1,257,4,64]))
       x1=x1[:,1:,:,:]
       x1 = self.decoder(x1, xskip)
       x1 = self.seg_head(x1)
